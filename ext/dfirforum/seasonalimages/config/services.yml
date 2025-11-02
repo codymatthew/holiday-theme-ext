@@ -1,0 +1,24 @@
+services:
+    dfirforum.seasonalimages.core.seasonal_images:
+        class: dfirforum\seasonalimages\core\seasonal_images
+        arguments:
+            - '@dbal.conn'
+            - '@cache.driver'
+            - '@user'
+            - '%tables.seasonal_images%'
+            - '%dfirforum.seasonalimages.root_path%'
+
+    dfirforum.seasonalimages.listener:
+        class: dfirforum\seasonalimages\event\main_listener
+        arguments:
+            - '@dfirforum.seasonalimages.core.seasonal_images'
+            - '@template'
+            - '@path_helper'
+            - '%dfirforum.seasonalimages.root_path%'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }
+
+parameters:
+    dfirforum.seasonalimages.root_path: '%core.root_path%ext/dfirforum/seasonalimages/'
+    tables.seasonal_images: '%core.table_prefix%seasonal_images'

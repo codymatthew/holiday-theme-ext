@@ -1,0 +1,7 @@
+{% if SEASONAL_IMAGE_ACTIVE %}
+<div class="seasonal-image seasonal-image-large seasonal-image-{{ SEASONAL_IMAGE_POSITION }}"
+     style="background-image: url('{{ SEASONAL_IMAGE_URL }}');"
+     title="{{ SEASONAL_IMAGE_DESCRIPTION }}"
+     role="img"
+     aria-label="{{ SEASONAL_IMAGE_DESCRIPTION }}"></div>
+{% endif %}

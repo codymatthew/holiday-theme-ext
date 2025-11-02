@@ -1,0 +1,136 @@
+/*
+    Seasonal Images for phpBB
+    ---------------------------------------------------------------------------------
+    Display seasonal images on your forum based on configurable date ranges
+    ---------------------------------------------------------------------------------
+*/
+
+.seasonal-image {
+    z-index: 1000;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* Top Left Position */
+.seasonal-image-top-left {
+    top: 0;
+    left: 0;
+    margin-top: -11px;
+    margin-left: -24px;
+}
+
+/* Top Right Position (default for avatar overlays) */
+.seasonal-image-top-right {
+    top: 0;
+    right: 0;
+    margin-top: -11px;
+    margin-right: -24px;
+}
+
+/* Top Center Position */
+.seasonal-image-top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -11px;
+}
+
+/* Bottom Left Position */
+.seasonal-image-bottom-left {
+    bottom: 0;
+    left: 0;
+    margin-bottom: -11px;
+    margin-left: -24px;
+}
+
+/* Bottom Right Position */
+.seasonal-image-bottom-right {
+    bottom: 0;
+    right: 0;
+    margin-bottom: -11px;
+    margin-right: -24px;
+}
+
+/* Bottom Center Position */
+.seasonal-image-bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: -11px;
+}
+
+/* Center Position */
+.seasonal-image-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Default size for small seasonal images (e.g., avatar overlays) */
+.seasonal-image-small {
+    width: 47px;
+    height: 47px;
+}
+
+/* Large size for logo overlays */
+.seasonal-image-large {
+    width: 110px;
+    height: 127px;
+}
+
+/* Logo-specific positioning */
+.seasonal-image-logo {
+    z-index: 1;
+    position: absolute;
+    margin-left: -51px;
+    margin-top: -16px;
+}
+
+/* Container for avatars with seasonal images */
+.avatar-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Ensure forum category icons have proper positioning context */
+.forabg {
+    margin-bottom: 10px;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 700px) and (max-device-width: 700px) {
+    .seasonal-image-small {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    .seasonal-image-large {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    .seasonal-image-logo {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    .headerbar {
+        margin-top: 12px;
+    }
+}
+
+/* Accessibility - ensure seasonal images don't interfere with clickable elements */
+.seasonal-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}

@@ -1,0 +1,86 @@
+<!-- INCLUDE overall_header.html -->
+
+<a id="maincontent"></a>
+
+<h1>{L_ACP_SEASONAL_IMAGES_TITLE}</h1>
+
+<p>{L_ACP_SEASONAL_IMAGES_EDIT_EXPLAIN}</p>
+
+<form id="acp_seasonal_images_edit" method="post" action="{U_ACTION}">
+
+<div class="panel">
+	<div class="inner">
+
+	<fieldset>
+		<legend><!-- IF ID -->{L_ACP_SEASONAL_IMAGES_EDIT}<!-- ELSE -->{L_ACP_SEASONAL_IMAGES_ADD}<!-- ENDIF --></legend>
+
+		<dl>
+			<dt><label for="description">{L_ACP_SEASONAL_IMAGES_DESCRIPTION}{L_COLON}</label></dt>
+			<dd><input type="text" id="description" name="description" value="{DESCRIPTION}" size="40" maxlength="255" /></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="start_month">{L_ACP_SEASONAL_IMAGES_START_DATE}{L_COLON}</label><br /><span>{L_ACP_SEASONAL_IMAGES_START_DATE_EXPLAIN}</span></dt>
+			<dd>
+				<select id="start_month" name="start_month">
+					<!-- BEGIN start_months -->
+					<option value="{start_months.VALUE}"<!-- IF start_months.SELECTED --> selected="selected"<!-- ENDIF -->>{start_months.LABEL}</option>
+					<!-- END start_months -->
+				</select>
+				<input type="number" name="start_day" value="{START_DAY}" min="1" max="31" size="2" />
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="end_month">{L_ACP_SEASONAL_IMAGES_END_DATE}{L_COLON}</label><br /><span>{L_ACP_SEASONAL_IMAGES_END_DATE_EXPLAIN}</span></dt>
+			<dd>
+				<select id="end_month" name="end_month">
+					<!-- BEGIN end_months -->
+					<option value="{end_months.VALUE}"<!-- IF end_months.SELECTED --> selected="selected"<!-- ENDIF -->>{end_months.LABEL}</option>
+					<!-- END end_months -->
+				</select>
+				<input type="number" name="end_day" value="{END_DAY}" min="1" max="31" size="2" />
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="image_path">{L_ACP_SEASONAL_IMAGES_IMAGE_PATH}{L_COLON}</label><br /><span>{L_ACP_SEASONAL_IMAGES_IMAGE_PATH_EXPLAIN}</span></dt>
+			<dd><input type="text" id="image_path" name="image_path" value="{IMAGE_PATH}" size="40" maxlength="255" /></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="position">{L_ACP_SEASONAL_IMAGES_POSITION}{L_COLON}</label><br /><span>{L_ACP_SEASONAL_IMAGES_POSITION_EXPLAIN}</span></dt>
+			<dd>
+				<select id="position" name="position">
+					<!-- BEGIN positions -->
+					<option value="{positions.VALUE}"<!-- IF positions.SELECTED --> selected="selected"<!-- ENDIF -->>{positions.LABEL}</option>
+					<!-- END positions -->
+				</select>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="priority">{L_ACP_SEASONAL_IMAGES_PRIORITY}{L_COLON}</label><br /><span>{L_ACP_SEASONAL_IMAGES_PRIORITY_EXPLAIN}</span></dt>
+			<dd><input type="number" id="priority" name="priority" value="{PRIORITY}" size="5" /></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="enabled">{L_ACP_SEASONAL_IMAGES_ENABLED}{L_COLON}</label></dt>
+			<dd><input type="checkbox" id="enabled" name="enabled" value="1"<!-- IF ENABLED --> checked="checked"<!-- ENDIF --> /></dd>
+		</dl>
+
+	</fieldset>
+
+	</div>
+</div>
+
+<fieldset class="submit-buttons">
+	<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />&nbsp;
+	<a href="{U_BACK}" class="button2">{L_BACK}</a>
+</fieldset>
+
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

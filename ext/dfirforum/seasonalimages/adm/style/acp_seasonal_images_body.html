@@ -1,0 +1,78 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_ACP_SEASONAL_IMAGES_TITLE}</h1>
+
+<p>{L_ACP_SEASONAL_IMAGES_EXPLAIN}</p>
+
+<form id="seasonal_images" method="post" action="{U_ACTION}">
+
+<div class="panel">
+	<div class="inner">
+
+	<fieldset>
+		<legend>{L_ACP_SEASONAL_IMAGES_SETTINGS}</legend>
+
+		<p style="text-align: right;">
+			<a href="{U_ADD}" class="button1">{L_ACP_SEASONAL_IMAGES_ADD}</a>
+		</p>
+
+		<!-- IF .images -->
+		<table class="table1 zebra-table">
+			<thead>
+			<tr>
+				<th>{L_ACP_SEASONAL_IMAGES_DESCRIPTION}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_START_DATE}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_END_DATE}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_IMAGE}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_POSITION}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_PRIORITY}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_STATUS}</th>
+				<th>{L_ACP_SEASONAL_IMAGES_ACTIONS}</th>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- BEGIN images -->
+			<tr>
+				<td><strong>{images.DESCRIPTION}</strong></td>
+				<td>{images.START_DATE}</td>
+				<td>{images.END_DATE}</td>
+				<td>{images.IMAGE_PATH}</td>
+				<td>{images.POSITION}</td>
+				<td>{images.PRIORITY}</td>
+				<td>
+					<!-- IF images.ENABLED -->
+						<span style="color: green;">{L_ENABLED}</span>
+					<!-- ELSE -->
+						<span style="color: red;">{L_DISABLED}</span>
+					<!-- ENDIF -->
+				</td>
+				<td>
+					<a href="{images.U_EDIT}">{L_EDIT}</a>
+					&nbsp;|&nbsp;
+					<a href="{images.U_TOGGLE}">
+						<!-- IF images.ENABLED -->
+							{L_DISABLE}
+						<!-- ELSE -->
+							{L_ENABLE}
+						<!-- ENDIF -->
+					</a>
+					&nbsp;|&nbsp;
+					<a href="{images.U_DELETE}">{L_DELETE}</a>
+				</td>
+			</tr>
+			<!-- END images -->
+			</tbody>
+		</table>
+		<!-- ELSE -->
+		<p>{L_ACP_SEASONAL_IMAGES_NONE}</p>
+		<!-- ENDIF -->
+
+	</fieldset>
+
+	</div>
+</div>
+
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->
